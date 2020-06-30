@@ -1,0 +1,189 @@
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+    <title>Online Schdeuler</title>
+
+
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-messages.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+    <script src="https://gitcdn.xyz/cdn/angular/bower-material/v1.1.22-rc.0/angular-material.js"></script>
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+
+    <!--Bootrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="mystyles.css">
+    <script src="app.js"></script>
+
+
+
+</head>
+
+<body>
+
+<div class="container myclass"  ng-controller="myhandler">
+
+    <div class="jumbotron">
+        <h1>Online Event Calender</h1>
+        <p>Famous Event Scheduler</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-6 mt-4">
+
+            <div class="first mx-auto pt-3 bg-light">
+                <md-content layout="column" layout-gt-sm="row" layout-padding="" ng-cloak="" class="datepickerdemoCalendar">
+                    <div layout="column" flex-order="1" flex-order-gt-sm="0">
+                        <md-subheader><h3 class="text-dark m-0 p-0 font-weight-bold">Select a Day from Calender</h3></md-subheader>
+                        <md-calendar ng-model="scdedule.startDate"></md-calendar>
+
+                    </div>
+                </md-content>
+                <div class="fields">
+                  <div class="text-left text-dark text-capitalize font-weight-bold">Add Time(Ex:10:30AM) </div>
+                <input type="time" class="form-control my-1 myinput"   ng-model="scdedule.eventtime">
+                    <div class="text-left text-dark text-capitalize font-weight-bold">Event</div>
+                <input type="text" class="form-control mb-1 myinput" placeholder="Enter Event"  ng-model="scdedule.eventname">
+
+                <button type="button"  ng-click="addEvent()" ng-class="{'btn btn-success mb-2 my-2 ':EditbtnClicked=='true','btn btn-warning mb-2 my-2 ':EditbtnClicked=='false'}">{{eventbuttonName}}</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-6 mt-4 ">
+            <div class="second mx-auto bg-light">
+
+                <div class="nxtevntsection">
+                    <h1 class="bg-dark">Next Event</h1>
+                    <div ng-if="eventList.length==0" class="alert alert-danger" role="alert">
+                        You didn't add any events!
+                    </div>
+                    <h4 ng-cloak ng-show="eventList.length>0" class="text-capitalize">{{firstremain.event}}</h4>
+                </div>
+
+                <div class="nxtevntRemainTimesection">
+
+                    <h2 class="bg-dark">Remaining Time</h2>
+
+                    <div ng-if="eventList.length==0">
+                        <div class="days">
+                            <h3 class="main-time">00</h3>
+                            <span>Days</span>
+
+                        </div>
+
+                        <div class="days">
+                            <h3 class="main-time">00</h3>
+                            <span>Hours</span>
+                        </div>
+
+                        <div class="days">
+                            <h3 class="main-time"> 00</h3>
+                            <span>Minutes</span>
+                        </div>
+
+
+                        <div class="days">
+                            <h3 class="main-time">00</h3>
+                            <span>Seconds</span>
+                        </div>
+
+                    </div>
+
+
+
+                    <div ng-show="eventList.length>0">
+                        <div class="days">
+                            <h3 ng-cloak class="main-time">{{days}}</h3>
+                            <span>Days</span>
+
+                        </div>
+
+                        <div class="days">
+                            <h3 ng-cloak class="main-time">{{hours}}</h3>
+                            <span>Hours</span>
+                        </div>
+
+                        <div class="days">
+                            <h3 ng-cloak class="main-time"> {{minutes}}</h3>
+                            <span>Minutes</span>
+                        </div>
+
+
+                        <div class="days">
+                            <h3 ng-cloak class="main-time">{{seconds}}</h3>
+                            <span>Seconds</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 my-3 ">
+
+            <ul class="list-group mx-auto py-3  my-3 bg-light">
+                <h3 class="text-capitalize text-center evlis">Event List</h3>
+                <li ng-repeat="oneevent in eventList" class="list-group-item text-capitalize border p-3 mb-2  mx-3 evelist">
+
+                    <div class="text-center p-3 font-weight-bold">
+                        {{oneevent.event}}
+
+                    </div>
+                    <div class="text-center pb-4">
+                        <span class="text-left font-weight-bold">{{oneevent.LocalDate}}  {{oneevent.LocaltimeIn24}}</span>
+                        <span class="text-right d-inline-block mx-1">
+                        <button type="button" class="btn btn-info font-weight-bold" ng-click="editEvent(oneevent.eventId)">Edit</button>
+                        <button type="button" class="btn btn-danger text-right font-weight-bold" ng-click="removeEvent(oneevent)">Delete</button>
+                    </span>
+                    </div>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>

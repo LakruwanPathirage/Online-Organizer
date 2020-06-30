@@ -1,0 +1,133 @@
+.first {
+    height: 700px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0px 15px;
+    border-radius: 5px;
+
+}
+.second{
+
+    height: 700px;
+    background: green;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 5px;
+
+}
+.third{
+
+    height: 250px;
+    background: aqua;
+    text-align: center;
+    border-radius: 5px;
+
+}
+.myclass{
+
+    background: #616161;
+}
+html,body{
+    background:#ffffcc ;
+    min-width: 320px;
+
+
+}
+html{
+    min-width: 320px;
+}
+.jumbotron{
+    height:150px;
+    padding-bottom: 8px;
+    padding-top: 5px;
+}
+md-list{
+    max-height: 120px;
+    overflow: auto;
+}
+.myinput{
+    box-sizing: border-box;
+}
+.second h1{
+    text-align: left;
+    padding:5px;
+    color:white;
+
+}
+.nxtevntsection{
+    text-align:center;
+    padding:5px;
+    margin:auto 0px 0px;
+    height:350px;
+    padding:2px;
+
+}
+.nxtevntRemainTimesection{
+
+    text-align:center;
+    margin:auto 0px 0px;
+    background:#d8b796;
+    padding-bottom:5px;
+    height:350px;
+    padding:2px;
+
+}
+.nxtevntRemainTimesection h2{
+
+    padding:5px;
+    color:white;
+    margin-bottom: 15px;
+
+}
+.days{
+
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    height: 90px;
+    width: 90px;
+    border-radius: 100px;
+    background: #fff;
+    color: #333;
+
+}
+.days h3{
+    font-weight: 500;
+    line-height: 70px;
+    font-size: 2em;
+    color: #F84982;
+}
+.days span{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .9em;
+    font-weight: 600;
+}
+
+
+.nxtevntsection h4{
+    background:#28a745;
+    padding:15px;
+    opacity:0.5;
+    color:white;
+
+}
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.evelist{
+    -webkit-box-shadow: 1px 5px 11px 4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 5px 11px 4px rgba(0,0,0,0.75);
+    box-shadow: 1px 5px 11px 4px rgba(0,0,0,0.75);
+}
+.evlis{
+background: #343a40;
+color: white;
+
+    padding:5px;
+}
